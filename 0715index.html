@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/myall.css">
+</head>
+<style>
+    .section {
+        height: 90vh;
+        position: relative;
+    }
+
+    .box01 {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+
+    }
+
+    .box02 {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        right: 0;
+        top: 0;
+    }
+
+    .box03 {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        left: 0;
+        bottom: 0;
+    }
+
+    .box04 {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        right: 0;
+        bottom: 0;
+    }
+
+    .logo {
+        background-image: url(image/pexels-samandgos-709552.jpg);
+        left: 30px;
+        right: 30px;
+        top: 30px;
+        bottom: 30px;
+        position: absolute;
+        box-shadow: 2px 2px 5px 4px var(--mycolor06);
+        background-attachment: fixed;
+    }
+    .us_text{
+        position:absolute;
+        background-color: rgba(0, 0, 0, 0.3);
+        color:rgba(255,255,255,0.8);
+        bottom:10%;
+        right:0;
+        
+        transform: translate(-30%);
+    }
+
+    .section01 {
+        margin-top: 10px;
+        margin-right: 80px;
+        margin-left: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+
+
+    }
+
+    .section01 .s01_box {
+        width: 20%;
+        margin-right:-50px ;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .section01 .s01_box .s01_in {
+        position: relative;
+        width: 80%;
+        height: auto;
+        /* background-color: #212424; */
+        overflow: hidden;
+    }
+
+    .section01 .s01_box .s01_in .roller {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        right: -100%;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+    }
+
+    .section01 .s01_box .s01_in:hover .roller {
+        right: 0;
+        transition: right 2s;
+    }
+    @media screen and (max-width: 1024px){
+            .section{
+                width: 100%;
+            }
+            .section01 .s01_box{
+                width: 48%;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .content_in .box{
+                width: 100%;
+            }
+        }
+   
+    
+</style>
+
+<body>
+    <div class="section bg-color03">
+        <div class="box01 bg-color05">01</div>
+        <div class="box02 bg-color05">02</div>
+        <div class="box03 bg-color05">03</div>
+        <div class="box04 bg-color05">04</div>
+        <div class="logo bg-position01"></div>
+        <div class="us_text">
+            <h1>shen的作品集</h1>
+            
+        </div>
+    </div>
+    <div class="section01 bg-color01">
+        <div class="s01_box ">
+            <div class="s01_in mybox01">
+                <div class="roller">
+                    <a href="http://192.168.10.63/food13/wp-admin"><h2 class="">查看做品</h2></a>
+                </div>
+                <div style="background-image: url(image/homework01/storename.gif); height: 200px; background-position: center center; background-size: 100%;"></div>
+                <div class="content">
+                    
+                    <h1>作品001</h1>
+                    <h1>香噗噗燒肉</h1>
+                </div>
+            </div>
+        </div>
+        <div class="s01_box ">
+            <div class="s01_in mybox01">
+                <div class="roller">
+                    <a href="http://192.168.10.63/20240701-stock-index.html"><h2 class="">查看做品</h2></a>
+                </div>
+                <div class="content">
+                    <div style="background-image: url(image/homework01/stock3.jpg); height: 200px; background-position: center center; background-size: cover;"></div>
+                    <h1>作品002</h1>
+                    <h1>VT投顧</h1>
+                </div>
+            </div>
+        </div>
+        <div class="s01_box">
+            <div class="s01_in mybox01">
+                <div class="roller">
+                    <a href="http://192.168.10.63/20240730-spa.html"><h2 class="">查看做品</h2></a>
+                </div>
+                <div class="content">
+                    <div style="background-image: url(image/blacktea/bg.jpg); height: 200px; background-position: center center; background-size: cover;"></div>
+                    <h1>作品003</h1>
+                    <h1>紅茶</h1>
+                </div>
+            </div>
+        </div>
+        <div class="s01_box ">
+            <div class="s01_in mybox01">
+                <div class="roller">
+                    <a href=""><h2 class="">查看做品</h2></a>
+                </div>
+                <div class="content">
+                    <img src="https://fakeimg.pl/300x200/200">
+                    <h1>作品00</h1>
+                    <h1>作業</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

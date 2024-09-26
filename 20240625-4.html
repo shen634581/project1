@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch8 練習03</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            width: 8px;
+            bottom: 10px;
+            background-color: aqua;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+
+            position: relative;
+
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px, solid, var(--mycolor10);
+
+        }
+
+        .timeline-section-pointer:hover::before {
+            width: 26px;
+            height: 26px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            border: 5px solid var(--mycolor05);
+        }
+
+        @media screen and (max-width:768px) {
+
+
+            .timeline-section::before {
+
+
+
+
+
+                left: -10px;
+
+            }
+
+
+
+
+            .timeline-section-pointer::before {
+
+                left: 1px;
+
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container wf2">
+        <div class="timeline-section" id="mydata">
+            <div class="row align-items-center  timeline-section-pointer">
+
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 fw-800">店名:</div>
+                        <div class="h4">地址:</div>
+                        <div class="h4">電話:</div>
+                        <div class="h4">停車:</div>
+                        <div class="h5">簡介:</div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3 ">
+                    <div class="bg-center ms-3 box"
+                        style="background-image: url(image/homework01/柴犬5.jpg);height: 300px;">
+                        <div class="roller">
+                            <div class="btn03">查看</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-row-reverse align-items-center  timeline-section-pointer ">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3 text-center">柴犬002</div>
+                        <div class="h4">個性:機掰</div>
+                        <div class="h5">
+                            簡介:會員價抽菸區臨時這一點常見出了，不管尊重，屏幕飛機媒體權限要去吃飯符合總算較高一時，下載地址桌面尚未如有文字學生程式本身，不論檢查安全一定要並沒有，培養是我調節發貼領導色彩見面我愛，硬體沒有空調意思研究場所打擊版面引導情況垃圾欣賞廣告嚴格外貿，台鐵準備民。
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3 ">
+
+                    <div class="bg-center ms-3 box me-3"
+                        style="background-image: url(image/homework01/柴犬6.jpg);height: 300px;">
+                        <div class="roller">
+                            <div class="bg-btn03">查看</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6 mt-3">
+                    <div class="box_text">
+                        <div class="h3">柴犬003</div>
+                        <div class="h4">個性:
+                            <s>機掰</s>
+                            <span class="text-danger">乖巧</span>
+                        </div>
+                        <div class="h5">
+                            簡介:會員價抽菸區臨時這一點常見出了，不管尊重，屏幕飛機媒體權限要去吃飯符合總算較高一時，下載地址桌面尚未如有文字學生程式本身，不論檢查安全一定要並沒有，培養是我調節發貼領導色彩見面我愛，硬體沒有空調意思研究場所打擊版面引導情況垃圾欣賞廣告嚴格外貿，台鐵準備民。
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <div class="bg-center ms-3 box ms-3"
+                        style="background-image: url(image/homework01/柴犬7.jpg);height: 300px;">
+                        <div class="roller">
+                            <div class="bg-btn03">查看</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        var hotelData;
+        var counter = 0;
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "js/hotel_C_f.json",
+                dataType: "json",
+                success: showData,
+                error: function () {
+                    console.log("error-js/hotel_C_f.json");
+                }
+            });
+        });
+        function showData(data) {
+            var filterData = [];
+            $("#mydata").empty();
+
+            hotelData = data.XML_Head.Infos.Info;
+
+            hotelData.forEach(function (item) {
+                if (item.Region == "臺中市" && item.Town == "龍井區") {
+                    filterData.push(item);
+                }
+            })
+            filterData.forEach(function (item, key) {
+                console.log(key);
+                var pci, strHTML;
+                if (item.Picture1 != "") {
+                    pic = item.Picture1;
+                }
+                else {
+                    pic = "image/homework01/makephoto.jpg"
+                }
+                if (key % 2 == 0) {
+                    strHTML = ' <div class="row align-items-center timeline-section-pointer" ><div class="col-md-6 mt-3" id="mydata"><div class="box_text"><div class="h3 fw-800">店名:' + item.Name + '</div><div class="h4">地址:' + item.Add + '</div><div class="h4">電話:' + item.Tel + '</div><div class="h4">停車:' + item.ParKinginfo + '</div><div class="h5">簡介:' + item.Description.substring(0, 50) + '</div></div></div><div class="col-md-6 mt-3 "><div class="bg-center ms-3 box"style="background-image: url(' + pic + ');height: 300px;"><div class="roller"><div class="btn03">查看</div></div></div></div></div>'
+                }
+                else {
+                    strHTML = '<div class="row flex-row-reverse align-items-center  timeline-section-pointer "><div class="col-md-6 mt-3" id="mydata"><div class="box_text"><div class="h3 fw-800">店名:' + item.Name + '</div><div class="h4">地址:' + item.Add + '</div><div class="h4">電話:' + item.Tel + '</div><div class="h4">停車:' + item.ParKinginfo + '</div><div class="h5">簡介:' + item.Description.substring(0, 50) + '</div></div></div><div class="col-md-6 mt-3 "><div class="bg-center ms-3 box"style="background-image: url(' + pic + ');height: 300px;"><div class="roller"><div class="btn03">查看</div></div></div></div></div>'
+                }
+                $("#mydata").append(strHTML)
+
+            });
+                    
+                
+               
+                
+            
+          
+        }
+    </script>
+</body>
+
+</html>

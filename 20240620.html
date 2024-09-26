@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅館民宿.觀光資料庫.串接練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .box{
+            height: auto;
+            
+            border: 2px solid var(--mycolor01);
+            margin: 3px;
+            box-shadow: 2px 2px 2px 2px var(--mycolor08);
+        }
+        .box_text{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="mydata">
+            <div class="col-sm-6">
+                <div class="box">
+                    <div class="bg-center" style=
+                        "background-image: url(https://ezgo.ardswc.gov.tw/Uploads/opendata/TainmaMain01/APPLY_D/20151007173924.jpg);height: 180px;"></div>
+                    <div class="box_text">
+                        <div class="h4">店名</div>
+                        <div class="h4">地址</div>
+                        <div class="h4">電話</div>
+                        <div class="h4">美食敘述</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        //載入旅館資料
+        $(function(){
+            $.ajax({
+                type:"GET",
+                url:"js/hotel_C_f.json",
+                dataType:"json",
+                success:showdata,
+                error:function(){
+                    console.log("網頁掛了-js/hotel_C_f.json");
+                }
+            });
+        });
+        function showdata(data){
+            console.log(data);
+            // $("#mydata").empty();
+            // hotelData=data.XML_Head.Infos.Info;
+            // //console.log(hotelData)//相等於console.log(data.XML_Head.Infos.Info);
+            // hotelData.forEach(function(item){
+                
+                
+            //     if (item.Region == "臺中市" && item.Town == "西屯區")
+            //     {   
+                    
+            //         console.log(item);
+            //         var pho;
+            //         var Desc=item.Description.substring(0,30)
+            //         if(item.Picture1 !="")
+            //         {
+            //             pho=item.Picture1;
+            //         }
+            //         else
+            //         {
+            //             pho="image/homework01/makephoto.jpg"
+            //         }
+            //         $("#mydata").append('<div class="col-md-4 mt-3"><div class="box h-100 d-flex flex-column"><div class="bg-center" style="background-image: url('+pho+');background-position: center center; background-size: cover;height: 220px;"></div><div class="box_text"><div class="h4">店名:'+item.Name+'</div><div class="h4">地址:'+item.Add+'</div><div class="h4">電話:'+item.Tel+'</div><div class="h4">簡介:'+Desc+'</div></div><a href="#" class="btn btn-primary mt-auto mb-2 w-50 ">查看更多</a></div>');
+                    
+            //     }
+            // })
+
+        }
+    </script>
+</body>
+</html>
